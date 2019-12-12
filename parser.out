@@ -1,0 +1,504 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> run_command
+Rule 1     run_command -> createServer
+Rule 2     run_command -> allowConnection
+Rule 3     run_command -> closeConnection
+Rule 4     run_command -> showClients
+Rule 5     run_command -> closeClient
+Rule 6     run_command -> createClient
+Rule 7     run_command -> sendMessage
+Rule 8     run_command -> showServer
+Rule 9     createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2
+Rule 10    createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2
+Rule 11    allowConnection -> MORE CONNECTION IN STRING COLON INT
+Rule 12    showClients -> SHOW CLIENTS INFO IN STRING
+Rule 13    showServer -> SHOW STRING INFO
+Rule 14    closeConnection -> CLOSE CONNECTION PAR1 STRING PAR2
+Rule 15    closeClient -> CLOSE CONNECTION PAR1 STRING IN STRING PAR2
+Rule 16    sendMessage -> SEND MESSAGE PAR1 STRING PAR2
+
+Terminals, with rules where they appear
+
+ADDRESS              : 9 10
+CLIENTS              : 12
+CLOSE                : 14 15
+COLON                : 11
+COMMA                : 9 9 10
+CONNECTING           : 10
+CONNECTION           : 11 14 15
+CREATE               : 9
+IN                   : 11 12 15
+INFO                 : 12 13
+INT                  : 9 10 11
+IP                   : 9 10
+MESSAGE              : 16
+MORE                 : 11
+NAME                 : 9
+PAR1                 : 9 10 14 15 16
+PAR2                 : 9 10 14 15 16
+PORT                 : 9 10
+SEND                 : 16
+SERVER               : 9 10
+SHOW                 : 12 13
+STRING               : 9 11 12 13 14 15 15 16
+TO                   : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+allowConnection      : 2
+closeClient          : 5
+closeConnection      : 3
+createClient         : 6
+createServer         : 1
+run_command          : 0
+sendMessage          : 7
+showClients          : 4
+showServer           : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . run_command
+    (1) run_command -> . createServer
+    (2) run_command -> . allowConnection
+    (3) run_command -> . closeConnection
+    (4) run_command -> . showClients
+    (5) run_command -> . closeClient
+    (6) run_command -> . createClient
+    (7) run_command -> . sendMessage
+    (8) run_command -> . showServer
+    (9) createServer -> . CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2
+    (11) allowConnection -> . MORE CONNECTION IN STRING COLON INT
+    (14) closeConnection -> . CLOSE CONNECTION PAR1 STRING PAR2
+    (12) showClients -> . SHOW CLIENTS INFO IN STRING
+    (15) closeClient -> . CLOSE CONNECTION PAR1 STRING IN STRING PAR2
+    (10) createClient -> . CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2
+    (16) sendMessage -> . SEND MESSAGE PAR1 STRING PAR2
+    (13) showServer -> . SHOW STRING INFO
+
+    CREATE          shift and go to state 10
+    MORE            shift and go to state 11
+    CLOSE           shift and go to state 12
+    SHOW            shift and go to state 13
+    CONNECTING      shift and go to state 14
+    SEND            shift and go to state 15
+
+    run_command                    shift and go to state 1
+    createServer                   shift and go to state 2
+    allowConnection                shift and go to state 3
+    closeConnection                shift and go to state 4
+    showClients                    shift and go to state 5
+    closeClient                    shift and go to state 6
+    createClient                   shift and go to state 7
+    sendMessage                    shift and go to state 8
+    showServer                     shift and go to state 9
+
+state 1
+
+    (0) S' -> run_command .
+
+
+
+state 2
+
+    (1) run_command -> createServer .
+
+    $end            reduce using rule 1 (run_command -> createServer .)
+
+
+state 3
+
+    (2) run_command -> allowConnection .
+
+    $end            reduce using rule 2 (run_command -> allowConnection .)
+
+
+state 4
+
+    (3) run_command -> closeConnection .
+
+    $end            reduce using rule 3 (run_command -> closeConnection .)
+
+
+state 5
+
+    (4) run_command -> showClients .
+
+    $end            reduce using rule 4 (run_command -> showClients .)
+
+
+state 6
+
+    (5) run_command -> closeClient .
+
+    $end            reduce using rule 5 (run_command -> closeClient .)
+
+
+state 7
+
+    (6) run_command -> createClient .
+
+    $end            reduce using rule 6 (run_command -> createClient .)
+
+
+state 8
+
+    (7) run_command -> sendMessage .
+
+    $end            reduce using rule 7 (run_command -> sendMessage .)
+
+
+state 9
+
+    (8) run_command -> showServer .
+
+    $end            reduce using rule 8 (run_command -> showServer .)
+
+
+state 10
+
+    (9) createServer -> CREATE . SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2
+
+    SERVER          shift and go to state 16
+
+
+state 11
+
+    (11) allowConnection -> MORE . CONNECTION IN STRING COLON INT
+
+    CONNECTION      shift and go to state 17
+
+
+state 12
+
+    (14) closeConnection -> CLOSE . CONNECTION PAR1 STRING PAR2
+    (15) closeClient -> CLOSE . CONNECTION PAR1 STRING IN STRING PAR2
+
+    CONNECTION      shift and go to state 18
+
+
+state 13
+
+    (12) showClients -> SHOW . CLIENTS INFO IN STRING
+    (13) showServer -> SHOW . STRING INFO
+
+    CLIENTS         shift and go to state 19
+    STRING          shift and go to state 20
+
+
+state 14
+
+    (10) createClient -> CONNECTING . TO SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2
+
+    TO              shift and go to state 21
+
+
+state 15
+
+    (16) sendMessage -> SEND . MESSAGE PAR1 STRING PAR2
+
+    MESSAGE         shift and go to state 22
+
+
+state 16
+
+    (9) createServer -> CREATE SERVER . PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2
+
+    PAR1            shift and go to state 23
+
+
+state 17
+
+    (11) allowConnection -> MORE CONNECTION . IN STRING COLON INT
+
+    IN              shift and go to state 24
+
+
+state 18
+
+    (14) closeConnection -> CLOSE CONNECTION . PAR1 STRING PAR2
+    (15) closeClient -> CLOSE CONNECTION . PAR1 STRING IN STRING PAR2
+
+    PAR1            shift and go to state 25
+
+
+state 19
+
+    (12) showClients -> SHOW CLIENTS . INFO IN STRING
+
+    INFO            shift and go to state 26
+
+
+state 20
+
+    (13) showServer -> SHOW STRING . INFO
+
+    INFO            shift and go to state 27
+
+
+state 21
+
+    (10) createClient -> CONNECTING TO . SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2
+
+    SERVER          shift and go to state 28
+
+
+state 22
+
+    (16) sendMessage -> SEND MESSAGE . PAR1 STRING PAR2
+
+    PAR1            shift and go to state 29
+
+
+state 23
+
+    (9) createServer -> CREATE SERVER PAR1 . ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2
+
+    ADDRESS         shift and go to state 30
+
+
+state 24
+
+    (11) allowConnection -> MORE CONNECTION IN . STRING COLON INT
+
+    STRING          shift and go to state 31
+
+
+state 25
+
+    (14) closeConnection -> CLOSE CONNECTION PAR1 . STRING PAR2
+    (15) closeClient -> CLOSE CONNECTION PAR1 . STRING IN STRING PAR2
+
+    STRING          shift and go to state 32
+
+
+state 26
+
+    (12) showClients -> SHOW CLIENTS INFO . IN STRING
+
+    IN              shift and go to state 33
+
+
+state 27
+
+    (13) showServer -> SHOW STRING INFO .
+
+    $end            reduce using rule 13 (showServer -> SHOW STRING INFO .)
+
+
+state 28
+
+    (10) createClient -> CONNECTING TO SERVER . PAR1 ADDRESS IP COMMA PORT INT PAR2
+
+    PAR1            shift and go to state 34
+
+
+state 29
+
+    (16) sendMessage -> SEND MESSAGE PAR1 . STRING PAR2
+
+    STRING          shift and go to state 35
+
+
+state 30
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS . IP COMMA PORT INT COMMA NAME STRING PAR2
+
+    IP              shift and go to state 36
+
+
+state 31
+
+    (11) allowConnection -> MORE CONNECTION IN STRING . COLON INT
+
+    COLON           shift and go to state 37
+
+
+state 32
+
+    (14) closeConnection -> CLOSE CONNECTION PAR1 STRING . PAR2
+    (15) closeClient -> CLOSE CONNECTION PAR1 STRING . IN STRING PAR2
+
+    PAR2            shift and go to state 38
+    IN              shift and go to state 39
+
+
+state 33
+
+    (12) showClients -> SHOW CLIENTS INFO IN . STRING
+
+    STRING          shift and go to state 40
+
+
+state 34
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 . ADDRESS IP COMMA PORT INT PAR2
+
+    ADDRESS         shift and go to state 41
+
+
+state 35
+
+    (16) sendMessage -> SEND MESSAGE PAR1 STRING . PAR2
+
+    PAR2            shift and go to state 42
+
+
+state 36
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP . COMMA PORT INT COMMA NAME STRING PAR2
+
+    COMMA           shift and go to state 43
+
+
+state 37
+
+    (11) allowConnection -> MORE CONNECTION IN STRING COLON . INT
+
+    INT             shift and go to state 44
+
+
+state 38
+
+    (14) closeConnection -> CLOSE CONNECTION PAR1 STRING PAR2 .
+
+    $end            reduce using rule 14 (closeConnection -> CLOSE CONNECTION PAR1 STRING PAR2 .)
+
+
+state 39
+
+    (15) closeClient -> CLOSE CONNECTION PAR1 STRING IN . STRING PAR2
+
+    STRING          shift and go to state 45
+
+
+state 40
+
+    (12) showClients -> SHOW CLIENTS INFO IN STRING .
+
+    $end            reduce using rule 12 (showClients -> SHOW CLIENTS INFO IN STRING .)
+
+
+state 41
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS . IP COMMA PORT INT PAR2
+
+    IP              shift and go to state 46
+
+
+state 42
+
+    (16) sendMessage -> SEND MESSAGE PAR1 STRING PAR2 .
+
+    $end            reduce using rule 16 (sendMessage -> SEND MESSAGE PAR1 STRING PAR2 .)
+
+
+state 43
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA . PORT INT COMMA NAME STRING PAR2
+
+    PORT            shift and go to state 47
+
+
+state 44
+
+    (11) allowConnection -> MORE CONNECTION IN STRING COLON INT .
+
+    $end            reduce using rule 11 (allowConnection -> MORE CONNECTION IN STRING COLON INT .)
+
+
+state 45
+
+    (15) closeClient -> CLOSE CONNECTION PAR1 STRING IN STRING . PAR2
+
+    PAR2            shift and go to state 48
+
+
+state 46
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP . COMMA PORT INT PAR2
+
+    COMMA           shift and go to state 49
+
+
+state 47
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT . INT COMMA NAME STRING PAR2
+
+    INT             shift and go to state 50
+
+
+state 48
+
+    (15) closeClient -> CLOSE CONNECTION PAR1 STRING IN STRING PAR2 .
+
+    $end            reduce using rule 15 (closeClient -> CLOSE CONNECTION PAR1 STRING IN STRING PAR2 .)
+
+
+state 49
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA . PORT INT PAR2
+
+    PORT            shift and go to state 51
+
+
+state 50
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT . COMMA NAME STRING PAR2
+
+    COMMA           shift and go to state 52
+
+
+state 51
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT . INT PAR2
+
+    INT             shift and go to state 53
+
+
+state 52
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA . NAME STRING PAR2
+
+    NAME            shift and go to state 54
+
+
+state 53
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT INT . PAR2
+
+    PAR2            shift and go to state 55
+
+
+state 54
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME . STRING PAR2
+
+    STRING          shift and go to state 56
+
+
+state 55
+
+    (10) createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2 .
+
+    $end            reduce using rule 10 (createClient -> CONNECTING TO SERVER PAR1 ADDRESS IP COMMA PORT INT PAR2 .)
+
+
+state 56
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING . PAR2
+
+    PAR2            shift and go to state 57
+
+
+state 57
+
+    (9) createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2 .
+
+    $end            reduce using rule 9 (createServer -> CREATE SERVER PAR1 ADDRESS IP COMMA PORT INT COMMA NAME STRING PAR2 .)
+

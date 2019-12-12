@@ -1,0 +1,10 @@
+Example of language:
+server:
+Create server ( address 127.0.0.1 , port 12345, name server1 )
+More connection in server1 : 2
+Show clients info in server1
+Close connection(client1 in server1)
+client:
+Connecting to server ( address 127.0.0.1, port 12345 )
+Send message ( hello )
+Close connection(user1)
